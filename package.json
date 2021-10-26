@@ -21,11 +21,18 @@
     "index.js"
   ],
   "scripts": {
-    "lint": "echo \"Error: no linter specified\" && exit 0",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint . --fix && prettier --write .",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
     "log4js": "^6.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "prettier": "^2.4.1"
   }
 }
