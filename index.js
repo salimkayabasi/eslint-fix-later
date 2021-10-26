@@ -1,5 +1,13 @@
+const logger = require('./src/logger').getLogger('fix-later');
+
 const outputFile = '.fix-later';
-module.exports = (param) => {
-    const cmd = `eslint ${param} -f ${outputFile}`;
-    console.log(cmd);
-}
+const {existsSync, unlinkSync} = require('fs');
+const later = (param) => {
+  const cmd = `eslint ${param} -f ${outputFile}`;
+  logger.info(cmd);
+  if (existsSync(outputFile)) {
+    unlinkSync(outputFile);
+  }
+};
+
+module.exports = later;

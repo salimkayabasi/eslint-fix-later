@@ -24,5 +24,8 @@
     "lint": "echo \"Error: no linter specified\" && exit 0",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "dependencies": {
+    "log4js": "^6.3.0"
   }
 }
