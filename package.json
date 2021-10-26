@@ -12,6 +12,9 @@
     "name": "Salim KAYABASI",
     "email": "salim.kayabasi@gmail.com"
   },
+  "bin": {
+    "eslint-fix-later": "scripts/cli.js"
+  },
   "main": "index.js",
   "files": [
     "src/**/*",
