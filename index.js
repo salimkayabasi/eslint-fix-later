@@ -1,2 +1,5 @@
 const { description } = require('./package.json')
-console.log(description);
+
+module.exports = () => {
+    console.log(description);
+}
