@@ -16,13 +16,21 @@ Please make sure that you have all `eslint` configuration installed already on y
 existing lint errors to be fixed later, please run `eslint-fix-later` with same parameters.
 
 ```shell
-# to see your eslint errors
-node_modules/.bin/eslint . --ext .js,.json,.md
 # fix them later
-npx eslint-fix-later . --ext .js,.json,.md
-# no errors anymore
-node_modules/.bin/eslint . --ext .js,.json,.md
+npx eslint-fix-later
 ```
 
-The main focus is making your CI check happy again. All the errors will be ignored on the file level so each of them can
-be fixed one-by-one later.
+### Advanced Usage
+
+If you have some other parameters while executing `eslint` command, you can also pass them to `eslint-fix-later` as
+well. You can also add `eslint-fix-later` to your `package.json`.
+
+```json
+{
+  "scripts": {
+    "lint": "eslint . --ext .js,.json,.md",
+    "lint:fix": "eslint . --ext .js,.json,.md --fix",
+    "lint:fix:later": "npx eslint-fix-later . --ext .js,.json,.md"
+  }
+}
+```
