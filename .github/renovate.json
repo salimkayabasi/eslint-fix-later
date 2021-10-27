@@ -12,7 +12,8 @@
     ":combinePatchMinorReleases",
     ":rebaseStalePrs",
     ":maintainLockFilesWeekly",
-    ":preserveSemverRanges"
+    ":preserveSemverRanges",
+    ":semanticCommits"
   ],
   "enabled": true,
   "automerge": true
