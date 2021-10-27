@@ -14,7 +14,7 @@ log4js.configure({
   categories: {
     default: {
       appenders: ['out'],
-      level: 'info',
+      level: process.env.LOG_LEVEL || 'info',
     },
   },
 });
