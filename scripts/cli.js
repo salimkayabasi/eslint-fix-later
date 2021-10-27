@@ -2,13 +2,21 @@
 
 const later = require('..');
 
-const formatArgs = ['-f', '--format'];
-const params = process.argv.slice(2);
+const ignoredArgs = ['-f', '--format', '--output-file', '-o'];
+const args = process.argv.slice(2);
 
-params.forEach((arg, i) => {
-  if (formatArgs.includes(arg)) {
-    params.splice(i, 2);
+let index = 0;
+
+const params = [];
+
+while (index < args.length) {
+  const arg = args[index];
+  if (ignoredArgs.includes(arg)) {
+    index += 2;
+  } else {
+    params.push(arg);
+    index += 1;
   }
-});
+}
 
 later(params.join(' '));
