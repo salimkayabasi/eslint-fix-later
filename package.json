@@ -18,6 +18,7 @@
   "main": "index.js",
   "files": [
     "src/**/*",
+    "scripts/**/*",
     "index.js"
   ],
   "scripts": {
