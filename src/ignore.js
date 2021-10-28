@@ -12,13 +12,13 @@ const ignore = ({ filePath, rules }) => {
   if (firstLine.includes(eslintDisable)) {
     const matched = firstLine.match(/eslint-disable(.*)\*\//);
     const existing = matched[1].split(',').map((item) => item.trim());
-    uniqueIds = [...new Set([...rules, ...existing])];
+    uniqueIds = [...new Set([...rules, ...existing])].sort();
     writeFileSync(
       filePath,
       file.replace(/^.*\n/, `/* ${eslintDisable} ${uniqueIds.join(',')} */\n`),
     );
   } else {
-    uniqueIds = rules;
+    uniqueIds = rules.sort();
     writeFileSync(
       filePath,
       `/* ${eslintDisable} ${uniqueIds.join(',')} */\n${file}`,
