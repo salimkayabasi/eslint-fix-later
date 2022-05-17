@@ -4,9 +4,8 @@ const { removeFile, readFile } = require('./fs');
 const exec = require('./exec');
 const parser = require('./parser');
 const ignore = require('./ignore');
-const consts = require('./consts');
+const { outputFile } = require('./consts');
 
-const { outputFile } = consts;
 const eslintPath = 'node_modules/.bin/eslint';
 
 const fix = (param) => {
@@ -34,7 +33,10 @@ const fix = (param) => {
   }
   const parsed = parser(payload);
   logger.info(`${parsed.length} file(s) will be ignored`);
-  parsed.forEach(ignore);
+  parsed.forEach((file) => {
+    logger.debug(`Ignoring ${file.filePath}`);
+    ignore(file);
+  });
 };
 
 const later = (param) => {
