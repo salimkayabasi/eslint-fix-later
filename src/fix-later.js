@@ -12,10 +12,9 @@ const fix = (param) => {
   logger.debug('Removing temporary files');
   removeFile(outputFile);
 
-  const baseCmd = `eslint ${param}`;
   const cmd = `${eslintPath} ${param} -f json -o ${outputFile} --quiet`;
   logger.info('Finding errors by running eslint');
-  logger.info(baseCmd);
+  logger.info(cmd);
   exec(cmd);
 
   const fileContent = readFile(outputFile);
@@ -46,6 +45,7 @@ const later = (param) => {
     logger.debug('Removing temporary files');
     removeFile(outputFile);
     logger.info('Completed');
+    process.exit(0);
   }
 };
 
